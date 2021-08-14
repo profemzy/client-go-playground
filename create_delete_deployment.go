@@ -12,7 +12,7 @@ import (
 	appv1 "k8s.io/api/apps/v1"
 )
 
-func createDeployment(clientset *kubernetes.Clientset)  {
+func createDeployment(clientset *kubernetes.Clientset) {
 
 	labels := map[string]string{"app": "test-app"}
 
@@ -72,7 +72,7 @@ func createDeployment(clientset *kubernetes.Clientset)  {
 	}
 }
 
-func deleteDeployment(clientset *kubernetes.Clientset, deploymentName string)  {
+func deleteDeployment(clientset *kubernetes.Clientset, deploymentName string) {
 	err := clientset.AppsV1().Deployments(defaultNamespace).Delete(context.Background(), deploymentName, metav1.DeleteOptions{})
 	if err != nil {
 		panic(err)
